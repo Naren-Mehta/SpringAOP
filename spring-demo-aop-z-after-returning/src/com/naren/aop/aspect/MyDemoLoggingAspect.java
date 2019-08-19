@@ -38,7 +38,16 @@ public class MyDemoLoggingAspect {
 				acc.setName("Naren_trace");
 			}
 		}
+		
+		convertNameToUpperCase(result);
 
+	}
+	
+	private void convertNameToUpperCase(List<Account> result) {
+		for(Account ac:result) {
+			String upperName= ac.getName().toUpperCase();
+			ac.setName(upperName);
+		}
 	}
 
 	@Before("com.naren.aop.aspect.AppExpression.forDaoPackageNoSetterGetter()")
